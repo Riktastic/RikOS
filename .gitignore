@@ -1,0 +1,39 @@
+# Ignore encrypted secrets file if you want to keep it private
+secrets.yaml
+.sops.yaml
+
+# Ignore other secret files or directories you may use
+*.key
+*.pem
+*.asc
+*.gpg
+
+# Ignore Nix build results (symlinks)
+result
+result-*
+
+# Ignore hardware config if you keep it private
+hardware-configuration.nix
+
+# Ignore editor swap and backup files
+*~
+*.swp
+*.swo
+*.bak
+
+# Ignore .env or environment files containing secrets
+.env
+.env.*
+
+# Ignore local nixpkgs or nix caches if any
+.nix-channels
+.nix-defexpr
+
+# Ignore home-manager generated files if any
+.home-manager
+
+# Ignore nixos-rebuild switch state files
+/nix/var/nix/profiles
+
+# Ignore any other local config files you want to keep private
+private.nix

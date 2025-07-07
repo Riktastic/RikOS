@@ -1,0 +1,1 @@
+sops -d ../secrets.yaml
