@@ -30,6 +30,9 @@
 
 { config, lib, pkgs, ... }:
 
+let
+  cfg = config.device;
+in
 {
   # ============================================================================
   # Boot Configuration
@@ -75,7 +78,7 @@
     # Kernel Parameters
     # ========================================================================
     # Configure kernel parameters for optimal boot experience
-    kernelParams = [
+    kernelParams = lib.mkIf (cfg.mode == "desktop") [
       # ============================================================
       # Boot Experience Parameters
       # ============================================================
@@ -101,7 +104,7 @@
     # Plymouth Configuration
     # ========================================================================
     # Enable Plymouth for graphical boot splash and disk unlock
-    plymouth = {
+    plymouth = lib.mkIf (cfg.mode == "desktop") {
       enable = true;                  # Enable Plymouth graphical boot
 
       # ============================================================
@@ -111,6 +114,5 @@
       # This provides a professional boot experience with animations
       theme = "spinfinity";
     };
-
   };
 }
