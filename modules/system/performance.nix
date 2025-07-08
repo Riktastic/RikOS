@@ -166,24 +166,6 @@
   '';
 
   # ============================================================================
-  # DNS Performance
-  # ============================================================================
-  # Enable systemd-resolved for better DNS performance
-  services.resolved = {
-    enable = true;              # Enable systemd-resolved
-    dnssec = "false";           # Disable DNSSEC for better performance
-    
-    # ========================================================================
-    # Fallback DNS Servers
-    # ========================================================================
-    # Configure fast and reliable DNS servers
-    fallbackDns = [
-      "1.1.1.1"  # Cloudflare DNS
-      "8.8.8.8"  # Google DNS
-    ];
-  };
-
-  # ============================================================================
   # Network Performance Tuning
   # ============================================================================
   # Enable TCP BBR and network optimizations for better performance
